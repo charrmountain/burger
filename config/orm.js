@@ -1,10 +1,10 @@
-const connection = require("./config/connection.js");
+const connection = require("./connection.js");
 
 // Object Relational Mapper (ORM)
 const orm = {
-  selectAll: () => {
-    const queryString = "";
-    const values = [];
+  selectAll: (allBurgers) => {
+    const queryString = "SELECT * FROM ??";
+    const values = [allBurgers];
 
     connection.query(queryString, values, (err, result) => {
       if (err) {
@@ -13,25 +13,25 @@ const orm = {
       console.table(result);
     });
   },
-  insertOne: () => {
-    const queryString = "";
-    const values = [];
+  insertOne: (burgerName, devoured) => {
+    const queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (?, ?);";
+    const values = [burgerName, devoured];
 
     connection.query(queryString, values, (err, result) => {
       if (err) {
         throw err;
       }
-      console.table(result);
+      console.log("Inserted a Burger!");
     });
   },
-  updateOne: () => {
-    const queryString = "";
-    const values = [];
+  updateOne: (newBurger,oldBurger) => {
+    const queryString = "UPDATE burgers SET burger_name = ? WHERE id = ?";
+    const values = [newBurger,oldBurger];
     connection.query(queryString, values, (err, result) => {
       if (err) {
         throw err;
       }
-      console.table(result);
+      console.log("Updated a Burger!");
     });
   },
 };

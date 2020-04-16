@@ -1,8 +1,8 @@
-const orm = require("./config/orm.js");
+const orm = require("../config/orm.js");
 
-// Find all the pets ordering by the lowest price to the highest price.
-orm.selectAll("");
-orm.insertOne("");
-orm.updateOne("");
+//orm to set up connection to burger.js
+orm.selectAll("burgers");
+orm.insertOne("Bacon Ranch Burger", false);
+orm.updateOne("Triple Decker Burger",1);
 
-module.exports = burger;
+// module.exports = burger;

@@ -4,10 +4,6 @@ const mysql = require("mysql");
 
 const app = express();
 
-// Set the port of our application
-// process.env.PORT lets the port be set by Heroku
-const PORT = process.env.PORT || 3000;
-
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,7 +16,7 @@ const connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "password",
-  database: "burger_db",
+  database: "burgers_db",
 });
 
 connection.connect((err) => {
