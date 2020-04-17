@@ -1,0 +1,45 @@
+<div id = "title"><h1>Burger Devour</h1></div>
+
+<div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+
+
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m"id="burgers">
+    <h3 class="uk-card-title">Burgers</h3>
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    {{> burgers/burger-block devoured=false}}
+    {{/if}}
+    {{/each}}
+</ul>
+
+</div>
+
+<br><br>
+
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m" id= "devoured">
+    <h3 class="uk-card-title">Devoured Burgers</h3>
+   <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+    </ul>
+</div>
+
+<br><br>
+
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m"id="add">
+    <h3 class="uk-card-title">Add a Burger</h3>
+<form class="create-form">
+
+    <div class="form-group">
+        <label for="ca">Burger Name:</label>
+        <input type="text" id="ca" name="burger_name">
+    </div>
+
+    <button type="submit">Add Burger</button>
+</form>
+</div>
+</div>

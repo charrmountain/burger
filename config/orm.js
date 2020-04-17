@@ -1,39 +1,54 @@
-const connection = require("./connection.js");
+// Import MySQL connection.
+const connection = require("../config/connection.js");
 
-// Object Relational Mapper (ORM)
-const orm = {
-  selectAll: (allBurgers) => {
+// Object for all our SQL statement functions.
+var orm = {
+  all: (tableInput, cb) => {
     const queryString = "SELECT * FROM ??";
-    const values = [allBurgers];
+    connection.query(queryString, [tableInput], (err, result) => {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+  create: (table, newRowData, cb) => {
+    const queryString = "INSERT INTO ?? SET ?";
+    const values = [table, newRowData];
 
     connection.query(queryString, values, (err, result) => {
       if (err) {
         throw err;
       }
-      console.table(result);
+      cb(result);
     });
   },
-  insertOne: (burgerName, devoured) => {
-    const queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (?, ?);";
-    const values = [burgerName, devoured];
+
+  update: (table, updateValues, condition, cb) => {
+    const queryString = "UPDATE ?? SET ? WHERE ?";
+    const values = [table, updateValues, condition];
 
     connection.query(queryString, values, (err, result) => {
       if (err) {
         throw err;
       }
-      console.log("Inserted a Burger!");
+      cb(result);
     });
   },
-  updateOne: (newBurger,oldBurger) => {
-    const queryString = "UPDATE burgers SET burger_name = ? WHERE id = ?";
-    const values = [newBurger,oldBurger];
-    connection.query(queryString, values, (err, result) => {
-      if (err) {
-        throw err;
-      }
-      console.log("Updated a Burger!");
-    });
-  },
+
+  // delete: (table, id, cb) => {
+  //   const queryString = "DELETE FROM ?? WHERE id = ?";
+  //   const values = [table, id];
+
+  //   console.log(queryString);
+  //   connection.query(queryString, values, (err, result) => {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     cb(result);
+  //   });
+  // },
 };
 
+// Export the orm object
 module.exports = orm;
