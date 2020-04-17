@@ -35,19 +35,6 @@ var orm = {
       cb(result);
     });
   },
-
-  // delete: (table, id, cb) => {
-  //   const queryString = "DELETE FROM ?? WHERE id = ?";
-  //   const values = [table, id];
-
-  //   console.log(queryString);
-  //   connection.query(queryString, values, (err, result) => {
-  //     if (err) {
-  //       throw err;
-  //     }
-  //     cb(result);
-  //   });
-  // },
 };
 
 // Export the orm object

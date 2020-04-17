@@ -1,8 +1,11 @@
 <div id = "name"><h1>Burger Devour</h1></div>
+<div class="uk-grid-row-large uk-align-center uk-child-width-1-2@s uk-text-center">
+       <div class="uk-container">
+      <div class="uk-child-width-expand@s uk-grid-match" uk-grid>
 
-<div class="uk-child-width-expand@s uk-text-center" uk-grid id = "container">
-
-<div class="uk-card uk-card-default uk-card-small uk-card-body" id= "devoured">
+{{!-- <div class="uk-child-width-expand@s uk-text-center" uk-grid id = "container"> --}}
+<div>
+<div class="uk-card uk-card-default uk-box-shadow-xlarge" id = "burgers">
     <h3 class="uk-card-title" id= "name">Ordered</h3>
    <ul>
         {{#each burgers}}
@@ -12,27 +15,29 @@
         {{/each}}
     </ul>
 </div>
-
-
-<br><br>
-
-
-<br><br>
-
-<div class="uk-card uk-card-default uk-card-body"id="add">
+</div>
+</div>
+<br>
+<div class="uk-grid-row-large uk-align-center uk-child-width-1-3@s uk-text-center"></div>
+<div>
+<div class="uk-card uk-card-default uk-box-shadow-xlarge "id = "add">
     <h3 class="uk-card-title"id= "name">Order up!</h3>
 <form class="create-form">
 
     <div class="form-group">
-        <label for="ca">Burger:</label>
-        <input type="text" id="ca" name="burger_name">
+        <label for="ca"></label>
+        <input type="text" id="ca" name="burger_name" placeholder="Enter Your Burger Here">
     </div>
 
-    <button type="submit">Add Burger</button>
+    <button class="submit" type="submit">Add Burger</button>
 </form>
-</div>
 
-<div class="uk-card uk-card-default uk-card-body uk-card-small"id="burgers">
+</div>
+</div>
+<div class="uk-grid-row-large uk-align-center uk-child-width-1-3@s uk-text-center"></div>
+<br>
+<div class = "bg">
+<div class="uk-card uk-card-default uk-box-shadow-xlarge"id = "burgers">
     <h3 class="uk-card-title"id= "name">Devoured</h3>
 <ul>
     {{#each burgers}}
@@ -41,6 +46,7 @@
     {{/if}}
     {{/each}}
 </ul>
+</div>
 </div>
 </div>
 </div>

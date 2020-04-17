@@ -17,13 +17,13 @@ router.get("/", (req, res) => {
 
 router.post("/api/burgers", (req, res) => {
   burger.create({ burger_name: req.body.burger_name, devoured: false}, (result) => {
-    // Send back the ID of the new quote
+    // Send back the ID of the new burger
     res.json({ id: result.insertId });
   });
 });
 
-// using put to replace the value of sleepy for a
-// specific cat resource
+
+//devoured route
 router.put("/api/burgers/:id/devoured", (req, res) => {
   const condition = { id: req.params.id };
   const update = { devoured: req.body.value };
