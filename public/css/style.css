@@ -1,21 +1,18 @@
-#devoured,
-#burgers,
-#add,
-#name {
+#devoured, #burgers, #add, #name{
     text-align: center;
     align-content: center;
     margin: 6px;
 }
 
-#name {
+#name{
     font-family: 'Satisfy', cursive;
     font-size: 50px;
 }
 
-h1 {
+h1{
     font-family: 'Satisfy', cursive;
     font-size: 100px;
-    color: white;
+    color:white;
 }
 
 li {
@@ -23,14 +20,18 @@ li {
 
 }
 
-div {
+
+    background-size: cover;
+
+
+  div {
     width: 200px;
     height: 200px;
     display: block;
     position: relative;
-}
-
-div::after {
+  }
+  
+  div::after {
     content: "";
     background: url(/img/burger2.jpg);
     height: 100%;
@@ -40,18 +41,18 @@ div::after {
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;
+    z-index: -1;   
     background-repeat: no-repeat;
     background-size: cover;
-}
+  }
 
-.change-devour {
-    border-radius: 0px;
+.change-devour{
+    border-radius:0px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
-    color: grey;
+    color:grey;
     border: 1px outset black;
-    background-color: white;
-    margin: 6px;
+   background-color: white;
+   margin: 6px;
 
 }
