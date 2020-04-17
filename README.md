@@ -50,7 +50,7 @@
 
 ## **Visuals**
 
- ![Gif](../burger/public/img/Burger.gif)
+ ![Gif](Burger.gif)
 
   - Example of the app 
 
