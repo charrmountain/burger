@@ -13,7 +13,7 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-const connection;
+var connection;
 // = mysql.createConnection({
 //   host: "localhost",
 //   port: 3306,
