@@ -4,6 +4,8 @@ const mysql = require("mysql");
 
 const app = express();
 
+
+
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -18,6 +20,17 @@ const connection = mysql.createConnection({
   password: "password",
   database: "burgers_db",
 });
+
+if (process.env.JAWSDB_URL){
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+}else{
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'password'
+    database: 'burgers_db'
+  });
+};
 
 connection.connect((err) => {
   if (err) {
