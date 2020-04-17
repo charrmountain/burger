@@ -10,16 +10,19 @@ router.get("/", (req, res) => {
     const hbsObject = {
       burgers: data,
     };
- 
+
     res.render("index", hbsObject);
   });
 });
 
 router.post("/api/burgers", (req, res) => {
-  burger.create({ burger_name: req.body.burger_name, devoured: false}, (result) => {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
+  burger.create(
+    { burger_name: req.body.burger_name, devoured: false },
+    (result) => {
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    }
+  );
 });
 
 // using put to replace the value of sleepy for a
